@@ -3,796 +3,521 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DBH Tech - Eğlenceli mobil oyunlar yakında geliyor!">
-    <title>DBH Tech - Oyunlar Yolda! 🎮</title>
-    
-    <!-- Google Fonts - Poppins & Nunito -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+    <title>DBH Tech - Yakında Geliyor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Temel Stil Sıfırlama */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
         
+        /* Renk Değişkenleri */
         :root {
-            --primary-orange: #ff5722;
-            --primary-yellow: #ffd600;
-            --primary-blue: #00d9ff;
-            --primary-purple: #b645ff;
-            --primary-pink: #ff1f7d;
-            --primary-green: #00ff88;
-            --bg-cream: #fff5f7;
-            --bg-light: #ffffff;
-            --text-dark: #1a1a2e;
-            --text-gray: #5a5a72;
-            --shadow-soft: rgba(0, 0, 0, 0.08);
+            --primary: #0ea5e9;
+            --primary-dark: #0284c7;
+            --secondary: #1e293b;
+            --bg-dark: #0f172a;
+            --bg-light: #1e293b;
+            --text-light: #f8fafc;
+            --text-gray: #cbd5e1;
+            --border-color: #334155;
         }
         
         body {
-            font-family: 'Nunito', sans-serif;
-            background: var(--bg-cream);
-            color: var(--text-dark);
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-        
-        /* Floating shapes background */
-        .floating-shapes {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 0;
-            overflow: hidden;
-        }
-        
-        .shape {
-            position: absolute;
-            opacity: 0.15;
-            animation: float 20s infinite ease-in-out;
-        }
-        
-        .shape-1 {
-            width: 80px;
-            height: 80px;
-            background: var(--primary-orange);
-            border-radius: 20px;
-            top: 10%;
-            left: 10%;
-            animation-delay: 0s;
-            transform: rotate(45deg);
-        }
-        
-        .shape-2 {
-            width: 60px;
-            height: 60px;
-            background: var(--primary-blue);
-            border-radius: 50%;
-            top: 60%;
-            left: 80%;
-            animation-delay: 3s;
-        }
-        
-        .shape-3 {
-            width: 100px;
-            height: 100px;
-            background: var(--primary-yellow);
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            bottom: 10%;
-            left: 15%;
-            animation-delay: 6s;
-        }
-        
-        .shape-4 {
-            width: 70px;
-            height: 70px;
-            background: var(--primary-pink);
-            border-radius: 50%;
-            top: 20%;
-            right: 15%;
-            animation-delay: 9s;
-        }
-        
-        .shape-5 {
-            width: 90px;
-            height: 90px;
-            background: var(--primary-purple);
-            border-radius: 20px;
-            bottom: 20%;
-            right: 20%;
-            animation-delay: 12s;
-            transform: rotate(15deg);
-        }
-        
-        .shape-6 {
-            width: 65px;
-            height: 65px;
-            background: var(--primary-green);
-            border-radius: 50%;
-            top: 40%;
-            left: 5%;
-            animation-delay: 4s;
-        }
-        
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            25% {
-                transform: translateY(-30px) rotate(5deg);
-            }
-            50% {
-                transform: translateY(-60px) rotate(-5deg);
-            }
-            75% {
-                transform: translateY(-30px) rotate(3deg);
-            }
-        }
-        
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            z-index: 1;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
         
-        /* Main Content Card */
-        .content-card {
-            background: var(--bg-light);
-            border-radius: 40px;
-            padding: 4rem 3rem;
-            box-shadow: 0 20px 60px var(--shadow-soft);
-            max-width: 900px;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
             width: 100%;
+        }
+        
+        /* Header & Logo */
+        header {
+            padding: 40px 0;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-            animation: slideIn 0.8s ease-out;
+            border-bottom: 1px solid var(--border-color);
+            background-color: var(--secondary);
         }
         
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Decorative corner elements */
-        .corner-decoration {
-            position: absolute;
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            opacity: 0.2;
-        }
-        
-        .corner-top-left {
-            top: -60px;
-            left: -60px;
-            background: var(--primary-orange);
-        }
-        
-        .corner-bottom-right {
-            bottom: -60px;
-            right: -60px;
-            background: var(--primary-blue);
-        }
-        
-        /* Emoji/Game Controller */
-        .game-icon {
-            font-size: 5rem;
-            margin-bottom: 1rem;
-            animation: bounce 2s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-20px);
-            }
-            60% {
-                transform: translateY(-10px);
-            }
-        }
-        
-        /* Logo */
         .logo {
-            font-family: 'Poppins', sans-serif;
-            font-size: 4rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+        
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), #3b82f6);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
             font-weight: 900;
-            background: linear-gradient(135deg, var(--primary-orange), var(--primary-pink), var(--primary-purple));
+            color: white;
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+        }
+        
+        .logo-text {
+            font-size: 42px;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--primary), #22d3ee);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-            text-transform: uppercase;
-            position: relative;
-            display: inline-block;
-            filter: drop-shadow(0 4px 8px rgba(255, 31, 125, 0.3));
+            color: transparent;
+            letter-spacing: -0.5px;
         }
         
         .tagline {
-            font-size: 1.1rem;
-            color: var(--primary-pink);
-            font-weight: 700;
+            color: var(--text-gray);
+            font-size: 18px;
+            font-weight: 300;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 2rem;
+            margin-top: 5px;
         }
         
-        /* Main Heading */
-        .main-heading {
-            font-family: 'Poppins', sans-serif;
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--text-dark);
-            margin-bottom: 1rem;
+        /* Ana İçerik */
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 60px 0;
+        }
+        
+        .content {
+            text-align: center;
+            width: 100%;
+        }
+        
+        .badge {
+            display: inline-block;
+            background-color: rgba(14, 165, 233, 0.15);
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            border: 1px solid rgba(14, 165, 233, 0.3);
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #ffffff, var(--text-gray));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             line-height: 1.2;
         }
         
-        .highlight {
-            color: var(--primary-orange);
-            position: relative;
-            display: inline-block;
-        }
-        
-        .highlight::after {
-            content: '';
-            position: absolute;
-            bottom: 5px;
-            left: 0;
-            right: 0;
-            height: 12px;
-            background: var(--primary-yellow);
-            z-index: -1;
-            transform: skewX(-12deg);
-            opacity: 0.8;
-        }
-        
-        /* Description */
         .description {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             color: var(--text-gray);
-            line-height: 1.8;
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: 700px;
+            margin: 0 auto 50px;
         }
         
-        /* Features */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
+        /* Geri Sayım */
+        .countdown-container {
+            background-color: rgba(30, 41, 59, 0.6);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 700px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
         
-        .feature-card {
-            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
-            border-radius: 20px;
-            padding: 2rem 1.5rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-        }
-        
-        .feature-card:nth-child(1) {
-            border: 2px solid rgba(255, 87, 34, 0.3);
-        }
-        
-        .feature-card:nth-child(1):hover {
-            border-color: var(--primary-orange);
-            box-shadow: 0 20px 40px rgba(255, 87, 34, 0.3);
-        }
-        
-        .feature-card:nth-child(2) {
-            border: 2px solid rgba(0, 217, 255, 0.3);
-        }
-        
-        .feature-card:nth-child(2):hover {
-            border-color: var(--primary-blue);
-            box-shadow: 0 20px 40px rgba(0, 217, 255, 0.3);
-        }
-        
-        .feature-card:nth-child(3) {
-            border: 2px solid rgba(182, 69, 255, 0.3);
-        }
-        
-        .feature-card:nth-child(3):hover {
-            border-color: var(--primary-purple);
-            box-shadow: 0 20px 40px rgba(182, 69, 255, 0.3);
-        }
-        
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .feature-title {
-            font-family: 'Poppins', sans-serif;
+        .countdown-title {
+            color: var(--primary);
             font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 0.5rem;
-        }
-        
-        .feature-text {
-            font-size: 0.95rem;
-            color: var(--text-gray);
-        }
-        
-        /* Progress Bar */
-        .launch-status {
-            background: linear-gradient(135deg, #fff0f5 0%, #ffe5f0 100%);
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 3rem;
-            border: 2px solid rgba(255, 31, 125, 0.3);
-        }
-        
-        .status-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-        
-        .status-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-        
-        .status-emoji {
-            font-size: 1.5rem;
-            animation: rotate 3s linear infinite;
-        }
-        
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
-        .progress-wrapper {
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 50px;
-            height: 16px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary-orange), var(--primary-pink), var(--primary-purple));
-            border-radius: 50px;
-            width: 0%;
-            animation: progressLoad 2s ease-out forwards;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 0 20px rgba(255, 31, 125, 0.5);
-        }
-        
-        .progress-bar::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            animation: shimmer 1.5s infinite;
-        }
-        
-        @keyframes progressLoad {
-            to { width: 85%; }
-        }
-        
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-        
-        .progress-text {
-            text-align: center;
-            margin-top: 1rem;
+            margin-bottom: 20px;
             font-weight: 600;
-            color: var(--primary-pink);
-            font-size: 1.1rem;
+            letter-spacing: 1px;
         }
         
-        /* Newsletter */
-        .newsletter-box {
-            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
-            border-radius: 25px;
-            padding: 3rem 2rem;
-            color: white;
-            margin-bottom: 3rem;
-            box-shadow: 0 20px 50px rgba(0, 217, 255, 0.4);
-        }
-        
-        .newsletter-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-        }
-        
-        .newsletter-subtitle {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
-        
-        .newsletter-form {
+        .countdown {
             display: flex;
-            gap: 1rem;
-            max-width: 500px;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .countdown-item {
+            background-color: var(--bg-dark);
+            border-radius: 12px;
+            padding: 20px 15px;
+            min-width: 120px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .countdown-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Bülten Formu */
+        .newsletter {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 40px;
+            background-color: rgba(30, 41, 59, 0.6);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .newsletter h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .newsletter p {
+            color: var(--text-gray);
+            margin-bottom: 25px;
+        }
+        
+        .subscribe-form {
+            display: flex;
+            max-width: 450px;
             margin: 0 auto;
         }
         
         .email-input {
             flex: 1;
-            padding: 1rem 1.5rem;
-            border: none;
-            border-radius: 50px;
+            padding: 16px 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 10px 0 0 10px;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
             font-size: 1rem;
-            font-family: 'Nunito', sans-serif;
             outline: none;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .email-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
         }
         
         .submit-btn {
-            background: var(--primary-orange);
+            background-color: var(--primary);
             color: white;
             border: none;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
+            border-radius: 0 10px 10px 0;
+            padding: 0 30px;
             font-size: 1rem;
-            font-weight: 700;
-            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
-            white-space: nowrap;
+            transition: background-color 0.3s ease;
         }
         
         .submit-btn:hover {
-            background: linear-gradient(135deg, var(--primary-pink), var(--primary-purple));
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(255, 31, 125, 0.6);
+            background-color: var(--primary-dark);
         }
         
-        .submit-btn:active {
-            transform: translateY(-1px);
-        }
-        
-        /* Success Message */
-        .success-message {
-            display: none;
-            background: linear-gradient(135deg, #fff 0%, #ffe5f0 100%);
-            color: var(--primary-pink);
-            padding: 1rem 2rem;
-            border-radius: 20px;
-            margin-top: 1rem;
-            font-weight: 700;
-            box-shadow: 0 8px 20px rgba(255, 31, 125, 0.2);
-            animation: popIn 0.4s ease-out;
-            border: 2px solid var(--primary-pink);
-        }
-        
-        .success-message.show {
-            display: block;
-        }
-        
-        @keyframes popIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-        /* Social Media */
+        /* Sosyal Medya */
         .social-section {
-            margin-bottom: 2rem;
+            margin: 40px 0 30px;
         }
         
         .social-title {
-            font-size: 1rem;
             color: var(--text-gray);
-            margin-bottom: 1rem;
-            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
         }
         
-        .social-links {
+        .social-icons {
             display: flex;
-            gap: 1rem;
             justify-content: center;
+            gap: 20px;
         }
         
-        .social-btn {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
+        .social-icon {
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.4rem;
-            text-decoration: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            color: var(--text-light);
+            font-size: 1.3rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            text-decoration: none;
+            border: 1px solid var(--border-color);
         }
         
-        .social-btn.twitter {
-            background: linear-gradient(135deg, #1DA1F2, #0e71c8);
-            color: white;
-        }
-        
-        .social-btn.instagram {
-            background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-            color: white;
-        }
-        
-        .social-btn.linkedin {
-            background: linear-gradient(135deg, #0077b5, #00669c);
-            color: white;
-        }
-        
-        .social-btn.youtube {
-            background: linear-gradient(135deg, #FF0000, #cc0000);
-            color: white;
-        }
-        
-        .social-btn:hover {
-            transform: translateY(-8px) scale(1.15);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+        .social-icon:hover {
+            background-color: var(--primary);
+            transform: translateY(-5px);
         }
         
         /* Footer */
-        .footer {
+        footer {
+            padding: 30px 0;
             text-align: center;
-            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--secondary);
             color: var(--text-gray);
             font-size: 0.9rem;
         }
         
-        /* Responsive */
+        /* Responsive Tasarım */
         @media (max-width: 768px) {
-            .content-card {
-                padding: 3rem 2rem;
-                border-radius: 30px;
-            }
-            
-            .logo {
+            h1 {
                 font-size: 2.5rem;
             }
             
-            .main-heading {
+            .description {
+                font-size: 1.1rem;
+                padding: 0 15px;
+            }
+            
+            .countdown {
+                gap: 10px;
+            }
+            
+            .countdown-item {
+                min-width: 90px;
+                padding: 15px 10px;
+            }
+            
+            .countdown-value {
                 font-size: 2rem;
             }
             
-            .description {
-                font-size: 1rem;
-            }
-            
-            .features {
-                grid-template-columns: 1fr;
-            }
-            
-            .newsletter-form {
+            .subscribe-form {
                 flex-direction: column;
             }
             
-            .email-input,
-            .submit-btn {
+            .email-input, .submit-btn {
+                border-radius: 10px;
                 width: 100%;
             }
             
-            .game-icon {
-                font-size: 4rem;
+            .email-input {
+                margin-bottom: 15px;
+            }
+            
+            .newsletter {
+                padding: 30px 20px;
+            }
+            
+            .logo-text {
+                font-size: 36px;
             }
         }
         
         @media (max-width: 480px) {
-            .container {
-                padding: 1rem;
+            h1 {
+                font-size: 2rem;
             }
             
-            .content-card {
-                padding: 2rem 1.5rem;
+            .logo {
+                flex-direction: column;
+                gap: 5px;
             }
             
-            .social-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
+            .logo-text {
+                font-size: 32px;
+            }
+            
+            .countdown-item {
+                min-width: 70px;
+                padding: 12px 8px;
+            }
+            
+            .countdown-value {
+                font-size: 1.7rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Floating Shapes Background -->
-    <div class="floating-shapes">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
-        <div class="shape shape-4"></div>
-        <div class="shape shape-5"></div>
-        <div class="shape shape-6"></div>
-    </div>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">DBH</div>
+                <div class="logo-text">DBH Tech</div>
+            </div>
+            <div class="tagline">Mobile Game Studio</div>
+        </div>
+    </header>
     
-    <!-- Main Container -->
-    <div class="container">
-        <div class="content-card">
-            <!-- Decorative Corners -->
-            <div class="corner-decoration corner-top-left"></div>
-            <div class="corner-decoration corner-bottom-right"></div>
-            
-            <!-- Game Icon -->
-            <div class="game-icon">🎮</div>
-            
-            <!-- Logo & Tagline -->
-            <div class="logo">DBH TECH</div>
-            <div class="tagline">Mobile Gaming Studio</div>
-            
-            <!-- Main Content -->
-            <h1 class="main-heading">
-                Harika Oyunlar <span class="highlight">Geliyor!</span>
-            </h1>
-            
-            <p class="description">
-                Mobil platformlar için eğlenceli, bağımlılık yapan ve yenilikçi oyunlar üzerinde çalışıyoruz. 
-                Büyük lansmanımıza hazır olun! 🚀
-            </p>
-            
-            <!-- Features -->
-            <div class="features">
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <div class="feature-title">Bağımlılık Yapan</div>
-                    <div class="feature-text">Saatlerce oynanabilir</div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">✨</div>
-                    <div class="feature-title">Yenilikçi</div>
-                    <div class="feature-text">Benzersiz mekanikler</div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎨</div>
-                    <div class="feature-title">Göz Alıcı</div>
-                    <div class="feature-text">Muhteşem grafikler</div>
-                </div>
-            </div>
-            
-            <!-- Launch Status -->
-            <div class="launch-status">
-                <div class="status-header">
-                    <div class="status-title">🚀 Lansman Hazırlığı</div>
-                    <div class="status-emoji">⚙️</div>
-                </div>
-                <div class="progress-wrapper">
-                    <div class="progress-bar"></div>
-                </div>
-                <div class="progress-text">Çok yakında!</div>
-            </div>
-            
-            <!-- Newsletter -->
-            <div class="newsletter-box">
-                <h2 class="newsletter-title">İlk Olanlardan Biri Ol!</h2>
-                <p class="newsletter-subtitle">
-                    Lansmanımızdan haberdar olmak için e-postanı bırak 🎁
+    <main>
+        <div class="container">
+            <div class="content">
+                <div class="badge">Yakında Geliyor</div>
+                <h1>İnşaat Devam Ediyor!</h1>
+                <p class="description">
+                    <strong>dbhtech.net</strong> adresinde, mobil platformlar için eğlenceli ve yenilikçi oyunlar üzerine çalışıyoruz. Büyük açılışa hazır olun!
                 </p>
-                <form class="newsletter-form" id="newsletterForm">
-                    <input 
-                        type="email" 
-                        class="email-input" 
-                        placeholder="E-posta adresin"
-                        required
-                        id="emailInput"
-                        aria-label="E-posta adresi"
-                    >
-                    <button type="submit" class="submit-btn">
-                        Haber Ver! 🔔
-                    </button>
-                </form>
-                <div class="success-message" id="successMessage">
-                    ✨ Harika! Lansmanla ilgili sana ilk biz haber vereceğiz!
+                
+                <!-- Geri Sayım -->
+                <div class="countdown-container">
+                    <div class="countdown-title">Açılış Tarihi: 1 Ocak 2025</div>
+                    <div class="countdown" id="countdown">
+                        <div class="countdown-item">
+                            <div class="countdown-value" id="days">00</div>
+                            <div class="countdown-label">Gün</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-value" id="hours">00</div>
+                            <div class="countdown-label">Saat</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-value" id="minutes">00</div>
+                            <div class="countdown-label">Dakika</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-value" id="seconds">00</div>
+                            <div class="countdown-label">Saniye</div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Social Media -->
-            <div class="social-section">
-                <div class="social-title">Sosyal medyada bizi takip et:</div>
-                <div class="social-links">
-                    <a href="#" class="social-btn twitter" aria-label="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="social-btn instagram" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="#" class="social-btn linkedin" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="#" class="social-btn youtube" aria-label="YouTube">
-                        <i class="fab fa-youtube"></i>
-                    </a>
+                
+                <!-- Bülten Formu -->
+                <div class="newsletter">
+                    <h3>Lansmandan Haberdar Olun</h3>
+                    <p>Yeni oyunlarımız ve duyurularımızdan haberdar olmak için e-posta adresinizi bırakın.</p>
+                    
+                    <form class="subscribe-form" id="newsletter-form">
+                        <input 
+                            type="email" 
+                            class="email-input" 
+                            placeholder="E-posta adresiniz" 
+                            required
+                        >
+                        <button type="submit" class="submit-btn">Bildirim Al</button>
+                    </form>
+                    <div id="form-message" style="margin-top: 15px; font-size: 0.9rem;"></div>
                 </div>
-            </div>
-            
-            <!-- Footer -->
-            <div class="footer">
-                <p>© 2025 DBH Tech. Tüm hakları saklıdır.</p>
+                
+                <!-- Sosyal Medya -->
+                <div class="social-section">
+                    <div class="social-title">Bizi Takip Edin</div>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" aria-label="Twitter/X">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 DBH Tech. Tüm hakları saklıdır.</p>
+            <p style="margin-top: 8px; font-size: 0.8rem; color: #64748b;">Mobil oyun geliştirme stüdyosu</p>
+        </div>
+    </footer>
     
     <script>
-        // Newsletter Form Handler
-        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+        // Geri Sayım Fonksiyonu
+        function updateCountdown() {
+            const targetDate = new Date('January 1, 2025 00:00:00').getTime();
+            const now = new Date().getTime();
+            const timeLeft = targetDate - now;
+            
+            // Zaman birimlerini hesapla
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            
+            // HTML'e yaz
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            
+            // Eğer geri sayım bittiyse
+            if (timeLeft < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById('countdown').innerHTML = '<div style="font-size: 1.5rem; color: #0ea5e9; font-weight: bold;">Açılış Zamanı Geldi!</div>';
+            }
+        }
+        
+        // Geri sayımı başlat (her saniye güncelle)
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        
+        // Sayfa yüklendiğinde hemen çalıştır
+        updateCountdown();
+        
+        // Bülten Formu İşleme
+        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const emailInput = document.getElementById('emailInput');
-            const successMessage = document.getElementById('successMessage');
+            const emailInput = this.querySelector('.email-input');
+            const messageDiv = document.getElementById('form-message');
             
-            if (emailInput.value && emailInput.validity.valid) {
-                // Başarı mesajını göster
-                successMessage.classList.add('show');
-                
-                // Formu temizle
-                emailInput.value = '';
-                
-                // 5 saniye sonra mesajı gizle
-                setTimeout(() => {
-                    successMessage.classList.remove('show');
-                }, 5000);
-                
-                // Confetti effect (optional - basit bir efekt)
-                console.log('🎉 Email kaydedildi!');
+            // Basit email validasyonu
+            const email = emailInput.value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (!emailRegex.test(email)) {
+                messageDiv.innerHTML = '<span style="color: #ef4444;">Lütfen geçerli bir e-posta adresi girin.</span>';
+                return;
             }
+            
+            // Başarılı mesajı göster (gerçek bir backend olmadığı için)
+            messageDiv.innerHTML = '<span style="color: #10b981;">Teşekkürler! Kaydınız alındı. Açılışımızdan haberdar edileceksiniz.</span>';
+            emailInput.value = '';
+            
+            // Mesajı 5 saniye sonra kaldır
+            setTimeout(() => {
+                messageDiv.innerHTML = '';
+            }, 5000);
         });
         
-        // Ekstra: Sayfa yüklendiğinde emoji animasyonu
-        window.addEventListener('load', function() {
-            const gameIcon = document.querySelector('.game-icon');
-            setTimeout(() => {
-                gameIcon.style.transform = 'scale(1.2)';
-                setTimeout(() => {
-                    gameIcon.style.transform = 'scale(1)';
-                }, 300);
-            }, 500);
+        // Sosyal medya ikonlarına tıklama efekti
+        document.querySelectorAll('.social-icon').forEach(icon => {
+            icon.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Gerçek uygulamada bu linkler çalışacaktır
+                const platform = this.getAttribute('aria-label');
+                alert(`DBH Tech ${platform} sayfasına yönlendirileceksiniz. (Bu bir demo, gerçek linkler geliştirme sırasında eklenecek)`);
+            });
         });
     </script>
 </body>
