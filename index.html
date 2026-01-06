@@ -1,875 +1,131 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS GAMES | AAA Mobile Gaming Studio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --neon-blue: #00f3ff;
-            --electric-purple: #9d4edd;
-            --cyber-pink: #ff0080;
-            --void-black: #0a0a0f;
-            --space-gray: #1a1a2e;
-            --star-white: #f0f0f0;
-            --metallic-silver: #c5c5c5;
-            --hologram-teal: #00ffcc;
-            --glow-blue: rgba(0, 243, 255, 0.7);
-            --glow-purple: rgba(157, 78, 221, 0.7);
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="dbhtech.net | Mobil platformlarda Game of the Year adayı olabilecek oyunlar. Enerjik, profesyonel ve teknolojik bir stüdyo." />
+  <title>DBH Tech | Yapım Aşamasında • GOTY Adayı</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--void-black);
-            color: var(--star-white);
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Uzay/Efekt Arka Planı */
-        .space-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(157, 78, 221, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(0, 243, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(255, 0, 128, 0.05) 0%, transparent 50%);
-        }
-
-        .stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        .star {
-            position: absolute;
-            background-color: white;
-            border-radius: 50%;
-            animation: twinkle 3s infinite;
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        }
-
-        /* Ana Konteyner */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-
-        /* Navigation */
-        .top-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 30px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--neon-blue), var(--electric-purple));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .logo-icon::after {
-            content: '';
-            position: absolute;
-            width: 150%;
-            height: 40%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transform: rotate(45deg);
-            animation: shine 3s infinite;
-        }
-
-        @keyframes shine {
-            0% { left: -100%; }
-            100% { left: 100%; }
-        }
-
-        .logo-text {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            font-size: 32px;
-            background: linear-gradient(to right, var(--neon-blue), var(--electric-purple));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            letter-spacing: -1px;
-        }
-
-        .logo-tagline {
-            font-size: 12px;
-            color: var(--metallic-silver);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-top: 2px;
-        }
-
-        /* Hero Section */
-        .hero-section {
-            padding: 100px 0 80px;
-            text-align: center;
-            position: relative;
-        }
-
-        .coming-soon-badge {
-            display: inline-block;
-            background: linear-gradient(90deg, var(--neon-blue), var(--hologram-teal));
-            color: var(--void-black);
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 14px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 40px;
-            box-shadow: 0 0 20px var(--glow-blue);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 0 20px var(--glow-blue); }
-            50% { box-shadow: 0 0 30px var(--glow-blue); }
-        }
-
-        .main-headline {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 5.5rem;
-            font-weight: 900;
-            line-height: 1;
-            margin-bottom: 30px;
-            background: linear-gradient(to right, var(--star-white) 30%, var(--neon-blue) 70%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .sub-headline {
-            font-size: 1.8rem;
-            color: var(--metallic-silver);
-            max-width: 800px;
-            margin: 0 auto 50px;
-            line-height: 1.5;
-            font-weight: 300;
-        }
-
-        .highlight {
-            color: var(--neon-blue);
-            font-weight: 600;
-        }
-
-        /* Countdown - Premium Versiyon */
-        .countdown-section {
-            background: rgba(26, 26, 46, 0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 50px;
-            margin: 60px auto;
-            max-width: 1000px;
-            border: 1px solid rgba(0, 243, 255, 0.2);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .countdown-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--neon-blue), var(--electric-purple), var(--cyber-pink));
-        }
-
-        .countdown-title {
-            text-align: center;
-            font-size: 1.5rem;
-            margin-bottom: 40px;
-            color: var(--metallic-silver);
-            font-weight: 500;
-        }
-
-        .countdown-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
-        }
-
-        .countdown-item {
-            text-align: center;
-            padding: 30px 20px;
-            background: rgba(10, 10, 15, 0.8);
-            border-radius: 15px;
-            border: 1px solid rgba(0, 243, 255, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .countdown-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0, 243, 255, 0.2);
-            border-color: var(--neon-blue);
-        }
-
-        .countdown-value {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 4rem;
-            font-weight: 800;
-            background: linear-gradient(to bottom, var(--neon-blue), var(--hologram-teal));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            line-height: 1;
-        }
-
-        .countdown-label {
-            font-size: 1rem;
-            color: var(--metallic-silver);
-            margin-top: 15px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 500;
-        }
-
-        /* Newsletter - Premium */
-        .newsletter-section {
-            background: rgba(26, 26, 46, 0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 60px;
-            margin: 80px auto;
-            max-width: 900px;
-            text-align: center;
-            border: 1px solid rgba(157, 78, 221, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .newsletter-section::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(157, 78, 221, 0.2) 0%, transparent 70%);
-        }
-
-        .newsletter-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, var(--electric-purple), var(--cyber-pink));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .newsletter-subtitle {
-            font-size: 1.2rem;
-            color: var(--metallic-silver);
-            max-width: 600px;
-            margin: 0 auto 40px;
-            line-height: 1.6;
-        }
-
-        .subscribe-form {
-            display: flex;
-            max-width: 600px;
-            margin: 0 auto;
-            gap: 15px;
-        }
-
-        .email-input {
-            flex: 1;
-            padding: 20px 25px;
-            background: rgba(10, 10, 15, 0.9);
-            border: 2px solid rgba(157, 78, 221, 0.3);
-            border-radius: 12px;
-            color: var(--star-white);
-            font-size: 1.1rem;
-            transition: all 0.3s;
-        }
-
-        .email-input:focus {
-            outline: none;
-            border-color: var(--electric-purple);
-            box-shadow: 0 0 20px rgba(157, 78, 221, 0.5);
-        }
-
-        .submit-btn {
-            padding: 20px 40px;
-            background: linear-gradient(135deg, var(--electric-purple), var(--cyber-pink));
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            white-space: nowrap;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(157, 78, 221, 0.4);
-        }
-
-        /* Social Media - Premium */
-        .social-section {
-            text-align: center;
-            margin: 80px 0 60px;
-        }
-
-        .social-title {
-            font-size: 1.2rem;
-            color: var(--metallic-silver);
-            margin-bottom: 30px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        .social-grid {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
-
-        .social-item {
-            width: 70px;
-            height: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: rgba(26, 26, 46, 0.7);
-            border: 2px solid transparent;
-            color: var(--star-white);
-            font-size: 1.8rem;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .social-item::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--neon-blue), var(--electric-purple));
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .social-item:hover::before {
-            opacity: 1;
-        }
-
-        .social-item i {
-            position: relative;
-            z-index: 1;
-        }
-
-        .social-item:hover {
-            transform: translateY(-10px) scale(1.1);
-            border-color: transparent;
-        }
-
-        .social-item.twitter { border-color: rgba(29, 161, 242, 0.3); }
-        .social-item.instagram { border-color: rgba(225, 48, 108, 0.3); }
-        .social-item.linkedin { border-color: rgba(0, 119, 181, 0.3); }
-        .social-item.youtube { border-color: rgba(255, 0, 0, 0.3); }
-        .social-item.discord { border-color: rgba(88, 101, 242, 0.3); }
-
-        /* Footer */
-        footer {
-            padding: 50px 0 30px;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 60px;
-        }
-
-        .footer-logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 900;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, var(--neon-blue), var(--hologram-teal));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .copyright {
-            color: var(--metallic-silver);
-            font-size: 0.9rem;
-            margin-top: 30px;
-        }
-
-        /* Responsive */
-        @media (max-width: 1200px) {
-            .main-headline {
-                font-size: 4.5rem;
-            }
-            
-            .countdown-value {
-                font-size: 3.5rem;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .container {
-                padding: 0 30px;
-            }
-            
-            .main-headline {
-                font-size: 3.8rem;
-            }
-            
-            .countdown-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
-            
-            .subscribe-form {
-                flex-direction: column;
-            }
-            
-            .newsletter-section {
-                padding: 40px 30px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-section {
-                padding: 70px 0 50px;
-            }
-            
-            .main-headline {
-                font-size: 3rem;
-            }
-            
-            .sub-headline {
-                font-size: 1.4rem;
-            }
-            
-            .countdown-section {
-                padding: 30px;
-            }
-            
-            .countdown-value {
-                font-size: 3rem;
-            }
-            
-            .logo-text {
-                font-size: 26px;
-            }
-            
-            .newsletter-title {
-                font-size: 2rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .container {
-                padding: 0 20px;
-            }
-            
-            .main-headline {
-                font-size: 2.5rem;
-            }
-            
-            .countdown-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .top-nav {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .social-item {
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
-            }
-        }
-    </style>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Orbitron:wght@600;700&display= Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" crossorigin="anonymous" referrerpolicy="no-ref--accent-2: #60a5fa;
+      --text: #ffffff;
+      --muted: #cbd5e1;
+      --border: rgba(148,163,184,0.18);
+      --gold: #f5c451;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(1100px 700px at 8% 10%, rgba(14,165,233,0.2), transparent 60%),
+                  radial-gradient(900px 500px at 92% 85%, rgba(14,165,233,0.2), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+    }
+    .wrapper { display: grid; place-items: center; min-height: 100vh; padding: 2rem; }
+    .card {
+      max-width: 1000px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 2rem;
+      backdrop-filter: blur(8px);
+    }
+    .ribbon {
+      display: flex; justify-content: center; align-items: center;
+      gap: 0.5rem; color: var(--gold);
+      font-weight: 700; margin-bottom: 1rem;
+    }
+    .logo { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem; }
+    .logo-mark {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), rgba(14,165,233,0.4));
+      display: grid; place-items: center;
+    }
+    .logo-text { font-family: 'Orbitron', sans-serif; font-size: 2rem; font-weight: 700; }
+    h1 { font-size: 2.4rem; margin: 0.5rem 0; }
+    .accent {
+      background: linear-gradient(90deg, var(--primary), var(--accent-2));
+      -webkit-background-clip: text; color: transparent;
+    }
+    .desc { color: var(--muted); margin-bottom: 1rem; }
+    .info-bar { background: rgba(30,41,59,0.6); border-radius: 12px; padding: 1rem; margin: 1rem 0; }
+    .pill { display: inline-block; padding: 0.5rem 0.8rem; border: 1px dashed var(--border); border-radius: 999px; margin-right: 0.5rem; }
+    .btn {
+      padding: 0.8rem 1rem; border-radius: 12px; border: none;
+      background: linear-gradient(90deg, var(--primary), var(--accent-2));
+      color: #0b1220; font-weight: 700; cursor: pointer;
+    }
+    .features { display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 1rem; margin: 1rem 0; }
+    .feature { background: rgba(2,6,23,0.5); border-radius: 12px; padding: 1rem; }
+    .feature h3 { margin: 0.5rem 0; }
+    .subscribe { margin-top: 1rem; }
+    input[type="email"] {
+      width: 70%; padding: 0.8rem; border-radius: 12px; border: 1px solid var(--border);
+      background: rgba(2,6,23,0.6); color: var(--text);
+    }
+    footer { margin-top: 1rem; color: var(--muted); font-size: 0.9rem; text-align: center; }
+  </style>
 </head>
 <body>
-    <!-- Uzay Efekti -->
-    <div class="space-bg"></div>
-    <div class="stars" id="stars"></div>
-    
-    <div class="container">
-        <!-- Navigation -->
-        <nav class="top-nav">
-            <div class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-gamepad" style="color: white; font-size: 24px; z-index: 1; position: relative;"></i>
-                </div>
-                <div>
-                    <div class="logo-text">NEXUS GAMES</div>
-                    <div class="logo-tagline">AAA Mobile Studio</div>
-                </div>
-            </div>
-            
-            <div style="color: var(--neon-blue); font-weight: 600; letter-spacing: 1px;">
-                <i class="fas fa-trophy" style="margin-right: 8px;"></i>
-                Game of the Year 2023 Finalist
-            </div>
-        </nav>
-        
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="coming-soon-badge">
-                <i class="fas fa-rocket" style="margin-right: 10px;"></i>
-                Yakında Geliyor
-            </div>
-            
-            <h1 class="main-headline">
-                NEXT GENERATION<br>MOBILE GAMING
-            </h1>
-            
-            <p class="sub-headline">
-                <span class="highlight">NEXUS GAMES</span> olarak, mobil oyun endüstrisinin sınırlarını zorlayan 
-                <span class="highlight">AAA kalitesinde</span> bir deneyim üzerinde çalışıyoruz. 
-                Game of the Year ödüllü ekibimiz, mobil platform için şimdiye kadarki en iddialı projesini geliştiriyor.
-            </p>
-        </section>
-        
-        <!-- Countdown Section -->
-        <section class="countdown-section">
-            <h2 class="countdown-title">
-                <i class="fas fa-calendar-star" style="margin-right: 10px; color: var(--neon-blue);"></i>
-                DÜNYA LANSMAN TARİHİ: 15 ARALIK 2024
-            </h2>
-            
-            <div class="countdown-grid">
-                <div class="countdown-item">
-                    <div class="countdown-value" id="days">00</div>
-                    <div class="countdown-label">Gün</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-value" id="hours">00</div>
-                    <div class="countdown-label">Saat</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-value" id="minutes">00</div>
-                    <div class="countdown-label">Dakika</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-value" id="seconds">00</div>
-                    <div class="countdown-label">Saniye</div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Newsletter Section -->
-        <section class="newsletter-section">
-            <h2 class="newsletter-title">SIRLARA ERKEN ERİŞİM</h2>
-            <p class="newsletter-subtitle">
-                Oyunumuzun kapalı beta testine katılma şansı, özel duyurular ve sürpriz hediyeler için 
-                lansman listemize kaydolun. Sadece <span class="highlight">5,000 kişi</span> ile sınırlı erken erişim fırsatı.
-            </p>
-            
-            <form class="subscribe-form" id="newsletter-form">
-                <input 
-                    type="email" 
-                    class="email-input" 
-                    placeholder="E-posta adresinizi girin" 
-                    required
-                >
-                <button type="submit" class="submit-btn">
-                    <i class="fas fa-lock" style="margin-right: 10px;"></i>
-                    ERKEN ERİŞİM İSTİYORUM
-                </button>
-            </form>
-            <div id="form-message" style="margin-top: 25px; font-size: 0.9rem;"></div>
-            
-            <div style="margin-top: 40px; color: var(--metallic-silver); font-size: 0.9rem;">
-                <i class="fas fa-shield-alt" style="margin-right: 8px; color: var(--hologram-teal);"></i>
-                Bilgileriniz güvende. Asla spam göndermiyoruz.
-            </div>
-        </section>
-        
-        <!-- Social Media -->
-        <section class="social-section">
-            <div class="social-title">DİĞER PROJELERİMİZİ KEŞFEDİN</div>
-            
-            <div class="social-grid">
-                <a href="#" class="social-item twitter">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#" class="social-item instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#" class="social-item linkedin">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="#" class="social-item youtube">
-                    <i class="fab fa-youtube"></i>
-                </a>
-                <a href="#" class="social-item discord">
-                    <i class="fab fa-discord"></i>
-                </a>
-            </div>
-            
-            <div style="margin-top: 40px; max-width: 700px; margin-left: auto; margin-right: auto;">
-                <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
-                    <div style="text-align: center;">
-                        <div style="font-size: 2.5rem; color: var(--neon-blue); font-weight: 800;">15M+</div>
-                        <div style="color: var(--metallic-silver);">Aylık Aktif Oyuncu</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 2.5rem; color: var(--electric-purple); font-weight: 800;">7</div>
-                        <div style="color: var(--metallic-silver);">Ödüllü Oyun</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 2.5rem; color: var(--cyber-pink); font-weight: 800;">4.9</div>
-                        <div style="color: var(--metallic-silver);">Ortalama Puan</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Footer -->
-        <footer>
-            <div class="footer-logo">NEXUS GAMES</div>
-            <div style="color: var(--metallic-silver); max-width: 600px; margin: 0 auto; line-height: 1.6;">
-                Los Angeles, Tokyo ve İstanbul'da stüdyolarımızla, 50'den fazla ödüllü geliştiriciden oluşan ekibimizle 
-                mobil oyun endüstrisinin geleceğini şekillendiriyoruz.
-            </div>
-            
-            <div class="copyright">
-                © 2024 NEXUS GAMES STUDIOS. Tüm hakları saklıdır.<br>
-                <div style="margin-top: 10px; font-size: 0.8rem;">
-                    "Game of the Year" adayı ekibimizin yeni projesi yakında...
-                </div>
-            </div>
-        </footer>
-    </div>
-    
-    <script>
-        // Yıldız efekti oluştur
-        function createStars() {
-            const starsContainer = document.getElementById('stars');
-            const starCount = 150;
-            
-            for (let i = 0; i < starCount; i++) {
-                const star = document.createElement('div');
-                star.classList.add('star');
-                
-                // Rastgele pozisyon ve boyut
-                const size = Math.random() * 3 + 1;
-                const posX = Math.random() * 100;
-                const posY = Math.random() * 100;
-                const delay = Math.random() * 5;
-                
-                star.style.width = `${size}px`;
-                star.style.height = `${size}px`;
-                star.style.left = `${posX}%`;
-                star.style.top = `${posY}%`;
-                star.style.animationDelay = `${delay}s`;
-                
-                starsContainer.appendChild(star);
-            }
-        }
-        
-        // Geri sayım fonksiyonu
-        function updateCountdown() {
-            const targetDate = new Date('December 15, 2024 00:00:00').getTime();
-            const now = new Date().getTime();
-            const timeLeft = targetDate - now;
-            
-            // Zaman birimlerini hesapla
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-            
-            // HTML'e yaz
-            document.getElementById('days').textContent = days.toString().padStart(2, '0');
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-            
-            // Eğer geri sayım bittiyse
-            if (timeLeft < 0) {
-                clearInterval(countdownInterval);
-                document.querySelector('.countdown-grid').innerHTML = `
-                    <div style="grid-column: 1 / -1; text-align: center; padding: 40px;">
-                        <div style="font-size: 3rem; color: var(--neon-blue); margin-bottom: 20px;">
-                            <i class="fas fa-trophy"></i>
-                        </div>
-                        <div style="font-size: 2rem; font-weight: 800; color: white;">
-                            LANSMAN ZAMANI GELDİ!
-                        </div>
-                        <div style="color: var(--metallic-silver); margin-top: 20px;">
-                            Oyunumuzu şimdi indirebilirsiniz.
-                        </div>
-                    </div>
-                `;
-            }
-        }
-        
-        // Bülten formu işleme
-        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const emailInput = this.querySelector('.email-input');
-            const messageDiv = document.getElementById('form-message');
-            
-            // Email validasyonu
-            const email = emailInput.value.trim();
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            
-            if (!emailRegex.test(email)) {
-                messageDiv.innerHTML = `
-                    <div style="color: #ff4757; background: rgba(255, 71, 87, 0.1); padding: 15px; border-radius: 10px; border: 1px solid rgba(255, 71, 87, 0.3);">
-                        <i class="fas fa-exclamation-circle"></i> Lütfen geçerli bir e-posta adresi girin.
-                    </div>
-                `;
-                return;
-            }
-            
-            // Başarılı mesajı
-            messageDiv.innerHTML = `
-                <div style="color: #00ffcc; background: rgba(0, 255, 204, 0.1); padding: 20px; border-radius: 10px; border: 1px solid rgba(0, 255, 204, 0.3);">
-                    <div style="font-size: 1.2rem; margin-bottom: 10px;">
-                        <i class="fas fa-check-circle"></i> KAYIT BAŞARILI!
-                    </div>
-                    <div>
-                        <strong>${email}</strong> adresi erken erişim listemize eklendi. 
-                        24 saat içinde beta davet detaylarını içeren bir e-posta alacaksınız.
-                    </div>
-                    <div style="margin-top: 15px; font-size: 0.9rem; color: #a0a0a0;">
-                        <i class="fas fa-user-secret"></i> Sıra numaranız: #${Math.floor(Math.random() * 5000) + 1}
-                    </div>
-                </div>
-            `;
-            
-            emailInput.value = '';
-            
-            // Form butonunu güncelle
-            const submitBtn = this.querySelector('.submit-btn');
-            submitBtn.innerHTML = '<i class="fas fa-check"></i> KAYIT OLUNDU';
-            submitBtn.style.background = 'linear-gradient(135deg, #00ffcc, #00b894)';
-            submitBtn.disabled = true;
-        });
-        
-        // Sosyal medya ikonlarına tıklama
-        document.querySelectorAll('.social-item').forEach(icon => {
-            icon.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const platformMap = {
-                    'twitter': 'Twitter',
-                    'instagram': 'Instagram',
-                    'linkedin': 'LinkedIn',
-                    'youtube': 'YouTube',
-                    'discord': 'Discord'
-                };
-                
-                const platformClass = Array.from(this.classList).find(cls => 
-                    ['twitter', 'instagram', 'linkedin', 'youtube', 'discord'].includes(cls)
-                );
-                
-                const platformName = platformMap[platformClass] || 'sosyal medya';
-                
-                // Premium uyarı mesajı
-                const alertMsg = `
-                    <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
-                    background: rgba(10, 10, 15, 0.95); padding: 30px; border-radius: 15px; 
-                    border: 2px solid var(--neon-blue); z-index: 10000; max-width: 500px; width: 90%;
-                    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); text-align: center;">
-                        <div style="font-size: 3rem; color: var(--neon-blue); margin-bottom: 20px;">
-                            <i class="fas fa-external-link-alt"></i>
-                        </div>
-                        <div style="font-size: 1.5rem; margin-bottom: 15px; color: white;">
-                            ${platformName} Sayfamıza Yönlendiriliyorsunuz
-                        </div>
-                        <div style="color: var(--metallic-silver); margin-bottom: 25px; line-height: 1.6;">
-                            2.5 milyon takipçimizle buluştuğumuz ${platformName} sayfamızda, 
-                            oyun geliştirme sürecimizin perde arkasını, konsept çizimlerini ve 
-                            özel duyuruları paylaşıyoruz.
-                        </div>
-                        <div style="display: flex; gap: 15px; justify-content: center;">
-                            <button onclick="this.parentElement.parentElement.remove()" 
-                            style="padding: 12px 30px; background: rgba(255, 255, 255, 0.1); 
-                            color: white; border: 1px solid rgba(255, 255, 255, 0.3); 
-                            border-radius: 8px; cursor: pointer;">
-                                İPTAL
-                            </button>
-                            <button onclick="window.open('https://${platformName.toLowerCase()}.com/nexusgames', '_blank'); this.parentElement.parentElement.parentElement.remove()" 
-                            style="padding: 12px 30px; background: linear-gradient(135deg, var(--neon-blue), var(--electric-purple)); 
-                            color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">
-                                DEVAM ET
-                            </button>
-                        </div>
-                    </div>
-                `;
-                
-                const alertDiv = document.createElement('div');
-                alertDiv.innerHTML = alertMsg;
-                document.body.appendChild(alertDiv.firstElementChild);
-                
-                // Dışarı tıklayınca kapat
-                alertDiv.firstElementChild.addEventListener('click', function(e) {
-                    if (e.target === this) {
-                        this.remove();
-                    }
-                });
-            });
-        });
-        
-        // Sayfa yüklendiğinde çalıştır
-        window.addEventListener('DOMContentLoaded', () => {
-            createStars();
-            updateCountdown();
-            
-            // Geri sayımı başlat
-            const countdownInterval = setInterval(updateCountdown, 1000);
-        });
-    </script>
+  <main class="wrapper">
+    <section class="card">
+      <div class="ribbon"><i class="fa-solid fa-trophy"></i> Game of the Year Adayı Vizyonu</div>
+      <div class="logo">
+        <div class="logo-mark"><i class="fa-solid fa-gamepad"></i></div>
+        <div>
+          <div class="logo-text">DBH Tech</div>
+          <div class="logo-sub">Mobile Games Studio</div>
+        </div>
+      </div>
+      <h1><span class="accent">Yakında Geliyor!</span> — Yapım Aşamasında</h1>
+      <p class="desc"><strong>dbhtech.net</strong> adresinde, mobil platformlar için eğlenceli, yenilikçi ve ödül adayı kalitede oyunlar geliştiriyoruz.</p>
+      <div class="info-bar">
+        <strong>Açılış Tarihi:</strong> 2026<br>
+        <span class="pill" id="days">00 Gün</span>
+        <span class="pill" id="hours">00 Saat</span>
+        <span class="pill" id="minutes">00 Dakika</span>
+        <span class="pill" id="seconds">00 Saniye</span>
+      </div>
+      <div class="features">
+        <div class="feature"><i class="fa-solid fa-wand-magic-sparkles"></i><h3>Özgün Oyun Tasarımı</h3><p>GOTY seviyesinde oynanış ve derinlik.</p></div>
+        <div class="feature"><i class="fa-solid fa-gauge-high"></i><h3>Performans & Stabilite</h3><p>Kusursuz optimizasyon ve akış.</p></div>
+        <div class="feature"><i class="fa-solid fa-people-group"></i><h3>Topluluk Odaklı</h3><p>Geri bildirim ve etkinliklerle yaşayan dünya.</p></div>
+      </div>
+      <form class="subscribe" onsubmit="return false;">
+        <input type="email" id="email" placeholder="ornek@eposta.com">
+        <button class="btn" id="notifyBtn">Bildirim Al</button>
+      </form>
+      <footer>© 2025 DBH Tech. Tüm hakları saklıdır.</footer>
+    </section>
+  </main>
+  <script>
+    const targetDate = new Date('2026-12-31T23:59:59+03:00');
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetDate - now;
+      if (diff <= 0) return;
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const m = Math.floor((diff / (1000 * 60)) % 60);
+      const s = Math.floor((diff / 1000) % 60);
+      daysEl.textContent = `${d} Gün`;
+      hoursEl.textContent = `${h} Saat`;
+      minutesEl.textContent = `${m} Dakika`;
+      secondsEl.textContent = `${s} Saniye`;
+    }
+    setInterval(updateCountdown, 1000);
+    document.getElementById('notifyBtn').addEventListener('click', () => {
+      const email = document.getElementById('email').value.trim();
+      if (!email) return alert('Lütfen e-posta girin.');
+      alert('Teşekkürler! Lansman duyuruları için e-postanızı kaydedeceğiz.');
+    });
+  </script>
 </body>
 </html>
