@@ -1,251 +1,173 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="dbhtech.net | Mobil platformlarda Game of the Year adayı olabilecek oyunlar. Enerjik, profesyonel ve teknolojik bir stüdyo." />
-  <title>DBH Tech | Yapım Aşamasında • GOTY Adayı</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dbhtech.net | Establishing Neural Link...</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #050505;
+            --accent-color: #00f2ff;
+            --secondary-accent: #7000ff;
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.6);
+        }
 
-  <!-- Google Fonts (Inter + Orbitron) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Orbitron:wght@600;700&display=swap
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-  <!-- Font Awesome (ikonlar) -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" crossorigin="anonymous" referrerpolicy="no-referreran */
-      --primary: #0ea5e9;                  /* Ana mavi */
-      --accent-2: #60a5fa;                 /* İkincil mavi */
-      --text: #ffffff;                     /* Beyaz metin */
-      --muted: #cbd5e1;                    /* Açıklama metni */
-      --border: rgba(148,163,184,0.18);    /* İnce sınır */
-      --gold: #f5c451;                     /* Ödül aksanı */
-    }
+        /* Arka Plan AI Grid Efekti */
+        .grid-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+            z-index: 1;
+        }
 
-    /* Global Reset */
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      background:
-        radial-gradient(1100px 700px at 8% 10%, rgba(14,165,233,0.2), transparent 60%),
-        radial-gradient(900px 500px at 92% 85%, rgba(14,165,233,0.2), transparent 60%),
-        var(--bg);
-      color: var(--text);
-      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.6;
-    }
+        .glow-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(112, 0, 255, 0.1), transparent 70%);
+            z-index: 2;
+        }
 
-    /* Yerleşim */
-    .wrapper { min-height: 100dvh; display: grid; place-items: center; padding: 2rem; }
-    .card {
-      width: 100%;
-      max-width: 1000px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.02));
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.06);
-      padding: 2rem;
-    }
+        .container {
+            text-align: center;
+            z-index: 10;
+            padding: 20px;
+        }
 
-    /* Üst Şerit (GOTY) */
-    .ribbon {
-      display: flex; align-items: center; justify-content: center;
-      gap: 0.6rem; margin: -1rem auto 1rem; width: max-content;
-      padding: 0.4rem 0.8rem; border: 1px solid rgba(245,196,81,0.45);
-      border-radius: 999px;
-      background: linear-gradient(90deg, rgba(245,196,81,0.12), rgba(245,196,81,0.2));
-      color: var(--gold); font-weight: 700; font-size: 0.95rem; letter-spacing: 0.3px;
-      box-shadow: 0 6px 22px rgba(245,196,81,0.25);
-    }
-    .ribbon i { color: var(--gold); }
+        .logo {
+            font-family: 'JetBrains+Mono', monospace;
+            font-size: 1.2rem;
+            letter-spacing: 0.5rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            animation: pulse 4s infinite alternate;
+        }
 
-    /* Logo */
-    .logo { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.2rem; }
-    .logo-mark {
-      width: 48px; height: 48px; border-radius: 12px; border: 1px solid var(--border);
-      background: linear-gradient(135deg, var(--primary), rgba(14,165,233,0.4));
-      display: grid; place-items: center; box-shadow: 0 8px 24px rgba(14,165,233,0.4);
-    }
-    .logo-mark i { color: #0b1220; font-size: 22px; }
-    .logo-text { font-family: 'Orbitron', sans-serif; font-weight: 700; letter-spacing: 0.9px; font-size: clamp(1.5rem, 2.3vw, 2rem); }
-    .logo-sub { font-size: 0.95rem; color: var(--muted); margin-left: 0.5rem; }
+        h1 {
+            font-weight: 700;
+            font-size: clamp(2rem, 8vw, 4rem);
+            margin: 0;
+            background: linear-gradient(135deg, #fff 30%, var(--accent-color), var(--secondary-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.1rem;
+        }
 
-    /* Başlık & Açıklama */
-    h1 {
-      font-size: clamp(1.8rem, 3.8vw, 3rem);
-      line-height: 1.15; margin: 0 0 0.75rem; font-weight: 800;
-    }
-    .accent {
-      background: linear-gradient(90deg, var(--primary), var(--accent-2));
-      -webkit-background-clip: text; background-clip: text; color: transparent;
-    }
-    .desc { font-size: 1rem; color: var(--muted); max-width: 70ch; margin: 0.75rem 0 1.4rem; }
+        p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 1.5rem auto;
+            line-height: 1.6;
+        }
 
-    /* Özellikler */
-    .features {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 0.9rem; margin: 1rem 0 1.5rem;
-    }
-    .feature {
-      background: rgba(2,6,23,0.5); border: 1px solid var(--border);
-      border-radius: 12px; padding: 1rem;
-    }
-    .feature i { color: var(--primary); font-size: 1.2rem; }
-    .feature h3 { margin: 0.5rem 0 0.4rem; font-size: 1.05rem; font-weight: 700; }
-    .feature p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+        .status-box {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
 
-    @media (max-width: 820px) { .features { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 560px) { .features { grid-template-columns: 1fr; } }
+        .dot {
+            height: 8px;
+            width: 8px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            margin-right: 12px;
+            box-shadow: 0 0 10px var(--accent-color);
+            animation: blink 1.5s infinite;
+        }
 
-    /* Form */
-    .subscribe { display: grid; grid-template-columns: 1fr; gap: 0.75rem; margin: 1.25rem 0 1.5rem; }
-    .subscribe label { font-weight: 600; font-size: 0.95rem; }
-    .form-row { display: grid; grid-template-columns: 1fr auto; gap: 0.75rem; }
-    input[type="email"] {
-      width: 100%; padding: 0.85rem 1rem; font-size: 1rem;
-      border-radius: 12px; border: 1px solid var(--border);
-      background: rgba(2,6,23,0.6); color: var(--text);
-      outline: none; transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-    input[type="email"]::placeholder { color: #94a3b8; }
-    input[type="email"]:focus-visible {
-      border-color: #22d3ee; box-shadow: 0 0 0 3px rgba(34,211,238,0.25);
-    }
-    .btn {
-      padding: 0.85rem 1.1rem; border: 0; border-radius: 12px;
-      font-weight: 800; font-size: 1rem; color: #0b1220;
-      background: linear-gradient(90deg, var(--primary), var(--accent-2));
-      cursor: pointer; transition: transform 0.08s ease, box-shadow 0.2s ease;
-      box-shadow: 0 10px 24px rgba(14,165,233,0.35);
-    }
-    .btn:hover { transform: translateY(-1px); box-shadow: 0 14px 28px rgba(14,165,233,0.45); }
-    .btn:active { transform: translateY(0); }
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.3);
+            letter-spacing: 0.1rem;
+            text-transform: uppercase;
+        }
 
-    /* Sosyal */
-    .social { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin: 1rem 0 0.5rem; }
-    .social a {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 40px; height: 40px; color: var(--text);
-      border: 1px solid var(--border); border-radius: 10px;
-      background: rgba(2,6,23,0.5);
-      transition: border-color 0.2s ease, transform 0.08s ease, box-shadow 0.2s ease;
-    }
-    .social a:hover { border-color: var(--primary); transform: translateY(-1px); box-shadow: 0 8px 22px rgba(14,165,233,0.3); color: var(--primary); }
+        @keyframes pulse {
+            from { opacity: 0.4; }
+            to { opacity: 1; text-shadow: 0 0 20px var(--accent-color); }
+        }
 
-    /* Footer */
-    footer {
-      margin-top: 1.2rem; display: flex; justify-content: space-between; align-items: center;
-      gap: 1rem; flex-wrap: wrap; color: var(--muted); font-size: 0.95rem;
-      border-top: 1px solid var(--border); padding-top: 1rem;
-    }
-    .mini-note { display: inline-flex; align-items: center; gap: 0.5rem; }
-    .mini-note i { color: var(--primary); }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
 
-    /* Mobil uyum */
-    @media (max-width: 560px) {
-      .form-row { grid-template-columns: 1fr; }
-      .logo-text { font-size: 1.4rem; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .btn, input[type="email"] { transition: none; }
-    }
-  </style>
+        /* Mouse Takip Efekti İçin Overlay */
+        #interactive-glow {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 242, 255, 0.07) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 3;
+            transform: translate(-50%, -50%);
+        }
+    </style>
 </head>
 <body>
-  <main class="wrapper" role="main">
-    <section class="card" aria-label="Yapım aşamasında bilgi">
-      <!-- GOTY Adayı Şeridi -->
-      <div class="ribbon" aria-label="Game of the Year adayı vizyonu">
-        <i class="fa-solid fa-trophy"></i>
-        <span>Game of the Year Adayı Vizyonu</span>
-      </div>
 
-      <!-- LOGO -->
-      <div class="logo" aria-label="DBH Tech logosu">
-        <div class="logo-mark" aria-hidden="true">
-          <i class="fa-solid fa-gamepad"></i>
+    <div class="grid-bg"></div>
+    <div class="glow-overlay"></div>
+    <div id="interactive-glow"></div>
+
+    <div class="container">
+        <div class="logo">DBHTECH.NET</div>
+        <h1>Bir Zeka Uyandıkça.</h1>
+        <p>Kelime oyunlarının ötesinde, AI ve insanın ortaklık kurduğu bir deneyim inşa ediliyor. Neural bağlantı kurulana kadar bekleyin.</p>
+        
+        <div class="status-box">
+            <span class="dot"></span>
+            SYSTEM STATUS: INITIALIZING HYBRID_CORE v3.3.8 RC
         </div>
-        <div>
-          <div class="logo-text">DBH Tech</div>
-          <div class="logo-sub">Mobile Games Studio</div>
-        </div>
-      </div>
+    </div>
 
-      <!-- BAŞLIK + AÇIKLAMA -->
-      <h1><span class="accent">Yakında Geliyor!</span> — Yapım Aşamasında</h1>
-      <p class="desc">
-        <strong>dbhtech.net</strong> adresinde, mobil platformlar için <em>eğlenceli</em>, <em>yenilikçi</em> ve
-        <strong>ödül adayı kalitede</strong> oyunlar üzerine çalışıyoruz. Büyük açılışa hazır olun!
-      </p>
+    <div class="footer">
+        © 2026 DBH TECH | GOTY NOMINEE PROJECT IN DEVELOPMENT
+    </div>
 
-      <!-- ÖZELLİKLER / VİTRİN -->
-      <div class="features" aria-label="Öne çıkan özellikler">
-        <article class="feature">
-          <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
-          <h3>Özgün Oyun Tasarımı</h3>
-          <p>Çekirdek oynanış loop’u ve meta-progresyon dengesi, GOTY seviyesine göre kurgulanıyor.</p>
-        </article>
-        <article class="feature">
-          <i class="fa-solid fa-gauge-high" aria-hidden="true"></i>
-          <h3>Performans &amp; Stabilite</h3>
-          <p>Düşük gecikme, optimize edilmiş kaynak kullanımı, cihazlar arası kusursuz akış.</p>
-        </article>
-        <article class="feature">
-          <i class="fa-solid fa-people-group" aria-hidden="true"></i>
-          <h3>Topluluk Odaklı</h3>
-          <p>Öneriler, geri bildirim ve sezonluk etkinliklerle yaşayan bir dünya.</p>
-        </article>
-      </div>
+    <script>
+        const glow = document.getElementById('interactive-glow');
+        window.addEventListener('mousemove', (e) => {
+            glow.style.left = e.clientX + 'px';
+            glow.style.top = e.clientY + 'px';
+        });
 
-      <!-- ABONELİK FORMU -->
-      <form class="subscribe" action="#" method="post" aria-label="E-posta bülteni aboneliği" on      <div class="form-row">
-          <input type="email" id="email" name="email" placeholder="ornek@eposta.com" autocomplete="email" inputmode="email" aria-required="true" />
-          <button type="submit" class="btn" id="notifyBtn">
-            <i class="fa-regular fa-bell"></i>
-            <span style="margin-left:0.4rem;">Bildirim Al</span>
-          </button>
-        </div>
-        <!-- Not: Backend entegrasyonu gereklidir. Bu form örnek amaçlıdır. -->
-      </form>
-
-      <!-- SOSYAL MEDYA -->
-      <div class="social" aria-label="Sosyal medya bağlantıları">
-        <!-- Linkleri kendi profil URL’lerinizle değiştirin -->
-        <a href="https          <i class="fa-brands fa-x-twitter"></i>
-        </a>
-        https://instagram.com
-          <i class="fa-brands fa-instagram"></i>
-        </a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener" aria></i>
-        </a>
-      </div>
-
-      <!-- ALT BİLGİ / TELİF -->
-      <footer>
-        <div class="mini-note">
-          <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
-          <span>Enerjik · Profesyonel · Teknolojik · Güven Veren</span>
-        </div>
-        <div>© 2025 DBH Tech. Tüm hakları saklıdır.</div>
-      </footer>
-    </section>
-  </main>
-
-  <!-- Basit form etkileşimi (backend yok) -->
-  <script>
-    document.getElementById('notifyBtn')?.addEventListener('click', () => {
-      const emailInput = document.getElementById('email');
-      const val = emailInput?.value?.trim();
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!val || !emailRegex.test(val)) {
-        alert('Lütfen geçerli bir e-posta adresi girin.');
-        emailInput?.focus();
-        return;
-      }
-      alert('Teşekkürler! Lansman duyuruları için e-postanızı kaydedeceğiz.');
-      emailInput.value = '';
-    });
-  </script>
+        // Konsol mesajı - Meraklılar için
+        console.log("%c DBH TECH %c AI Persona System is Watching You...", "background: #00f2ff; color: #000; font-weight: bold; padding: 5px;", "color: #00f2ff;");
+    </script>
 </body>
 </html>
